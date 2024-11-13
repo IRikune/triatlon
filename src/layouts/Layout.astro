@@ -17,6 +17,39 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<aside
+			class="flex h-screen fixed flex-col w-48 justify-between border-e bg-white"
+		>
+			<div class="px-4 py-6">
+				<ul class="mt-6 space-y-1">
+					<li>
+						<a
+							href="/"
+							class="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
+						>
+							Inicio
+						</a>
+					</li>
+
+					<li>
+						<a
+							href="/app"
+							class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+						>
+							Registrar participantes
+						</a>
+					</li>
+					<li>
+						<a
+							href="/app/results"
+							class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+						>
+							Iniciar el Triatlon
+						</a>
+					</li>
+				</ul>
+			</div>
+		</aside>
 		<slot />
 	</body>
 </html>
@@ -34,7 +67,6 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
 	}
 	code {
 		font-family:

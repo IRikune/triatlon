@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Register from "../../components/svelte/Register.svelte";
+---
+
+<!-- Register all participants -->
+<Layout title="App">
+    <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-lg">
+            <h1
+                class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+            >
+                Bienvenido al Triatlon!
+            </h1>
+            <p class="mx-auto my-4 max-w-md text-center text-gray-500">
+                ¡Bienvenido a la aplicación de Triatlon! Aquí podrás registrar
+                participantes y ver el resultado del evento.
+            </p>
+            <Register client:load />
+        </div>
+    </div>
+</Layout>
