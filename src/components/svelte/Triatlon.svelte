@@ -8,9 +8,19 @@
         calcularDistanciaRecorridaNatacion,
         calcularDistanciaCiclista,
     } from "../utils";
+    import { API_URL } from "../../constants/consts";
     $: distances = [];
     $: dateInitial = 0;
     let started;
+    const clearParticipants = async () => {
+        const response = await fetch(`${API_URL}/participants/`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+        });
+    };
     const participants = fetchParticipants();
     participants.then((data) => {
         data.forEach((participant) => {
@@ -56,11 +66,11 @@
     <h1 class="mb-4">Participantes actuales:</h1>
     <Table />
     <button on:click={iniciarTriatlon}>Iniciar el Triatlon</button>
+    <button on:click={clearParticipants}>Borrar participantes</button>
     {#if started}
         {#await fetchParticipants()}
             <p>Cargando...</p>
         {:then data}
-            <!-- render a table with progress bars -->
             <table class="divide-y-2 divide-gray-200 bg-white text-sm border">
                 <thead class="ltr:text-left rtl:text-right">
                     <tr>
